@@ -1,0 +1,39 @@
+<div class="portfolio-container">
+  <header class="profile-header">
+    <h1>Mohammad Yusuf I Shaikh</h1>
+    <br />
+    <img src="assets/profile-pic.jpg" alt="Mohammad Yusuf I Shaikh" class="profile-img">
+
+    <p class="subtitle">
+      <i class="fas fa-laptop-code"></i> Junior Software Developer <br /> <i class="fas fa-graduation-cap"> </i> Computer Science Major
+    </p>
+  </header>
+
+  <main>
+    <section class="social-links">
+      <a href="https://www.linkedin.com/in/mohammad-shaikh/" target="_blank" rel="noopener noreferrer" class="btn outline-btn">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://instagram.com/your-profile" target="_blank" rel="noopener noreferrer" class="btn outline-btn">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="contact-actions">
+      <a href="mailto:contact@myshaikh237.com" class="btn primary-btn email-btn">
+        <i class="fas fa-envelope"></i> Email Me
+      </a>
+
+      <!-- Handled by contact.ts -->
+      <button (click)="handlePhoneClick()" class="btn primary-btn phone-btn">
+        <i class="fas fa-phone"></i> {{ phoneButtonText }}
+      </button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Mohammad Yusuf I Shaikh</p>
+  </footer>
+</div>

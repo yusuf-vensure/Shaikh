@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="shaikh.client/shaikh.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="Shaikh.Server/Shaikh.Server.csproj" />
+</Solution>

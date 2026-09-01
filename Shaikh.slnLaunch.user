@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "shaikh.client\\shaikh.client.esproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Shaikh.Server\\Shaikh.Server.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
