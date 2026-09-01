@@ -6,9 +6,10 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { CurrentPositionComponent } from './current-position/current-position';
 import { EducationComponent } from './education/education';
+import { HomeComponent } from './home/home';
 
 @NgModule({
-  declarations: [App, ContactComponent, CurrentPositionComponent, EducationComponent],
+  declarations: [App, ContactComponent, CurrentPositionComponent, EducationComponent, HomeComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],

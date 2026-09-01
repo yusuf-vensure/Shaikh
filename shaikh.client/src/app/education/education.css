@@ -177,8 +177,8 @@
 }
 
 .school-logo {
-  width: 70px;
-  height: 70px;
+  width: 40%;
+  height: 40%;
   object-fit: contain;
   flex-shrink: 0;
 }
