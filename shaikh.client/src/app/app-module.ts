@@ -7,9 +7,17 @@ import { App } from './app';
 import { CurrentPositionComponent } from './current-position/current-position';
 import { EducationComponent } from './education/education';
 import { HomeComponent } from './home/home';
+import { SkillsComponent } from './skills/skills';
 
 @NgModule({
-  declarations: [App, ContactComponent, CurrentPositionComponent, EducationComponent, HomeComponent],
+  declarations: [
+    App,
+    ContactComponent,
+    CurrentPositionComponent,
+    EducationComponent,
+    HomeComponent,
+    SkillsComponent
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [provideBrowserGlobalErrorListeners()],
   bootstrap: [App],
