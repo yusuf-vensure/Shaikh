@@ -1,30 +1,95 @@
-<div class="popup-overlay" *ngIf="showPopup">
-  <div class="popup-card">
+<div class="portfolio-container">
 
-    <h1>Welcome!</h1>
+  <header class="profile-header">
+    <img src="images/Headshot.jpg" alt="Mohammad Shaikh" class="profile-image">
 
-    <p class="description">
-      Before you get to know about me, I would like to know who you are.
-      Please select the option that best describes you:
+    <h1>Mohammad Shaikh</h1>
+
+    <p class="subtitle">
+      <i class="fas fa-laptop-code"></i>
+      <span>Junior Software Developer</span>
     </p>
+  </header>
 
-    <div class="option-container">
-      <button class="option-btn" (click)="selectRole('Recruiter')">
-        Recruiter
-      </button>
+  <main>
 
-      <button class="option-btn" (click)="selectRole('Colleague')">
-        Colleague
-      </button>
+    <section class="info-card">
+      <p class="description">
+        Hello! I'm Mohammad Shaikh, a Junior Software Developer at Venture
+        Employer Solutions and a Master's student in Computer Science at
+        Georgia State University.
 
-      <button class="option-btn" (click)="selectRole('Friend/Classmate')">
-        Friend/Classmate
-      </button>
+        I enjoy building full-stack applications using Angular, ASP.NET Core,
+        C#, SQL Server, Docker, and modern Microsoft technologies. My passion
+        lies in developing software that solves real-world problems while
+        continuously exploring AI, cloud computing, and emerging technologies.
+      </p>
+    </section>
 
-      <button class="option-btn" (click)="selectRole('NPC')">
-        NPC
-      </button>
-    </div>
+    <div class="divider"></div>
 
-  </div>
+    <section class="info-card">
+      <h2><span class="title-accent"></span>Current Focus</h2>
+
+      <div class="focus-grid">
+
+        <div class="focus-card">
+          <span class="icon-badge icon-angular"><i class="fab fa-angular"></i></span>
+          <p>Angular Development</p>
+        </div>
+
+        <div class="focus-card">
+          <span class="icon-badge icon-dotnet"><i class="devicon-dotnetcore-plain"></i></span>
+          <p>ASP.NET Core & Blazor</p>
+        </div>
+
+        <div class="focus-card">
+          <span class="icon-badge icon-copilot"><i class="fas fa-robot"></i></span>
+          <p>Copilot Studio</p>
+        </div>
+
+        <div class="focus-card">
+          <span class="icon-badge icon-docker"><i class="fab fa-docker"></i></span>
+          <p>Docker & Linux</p>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="info-card">
+      <h2><span class="title-accent"></span>Quick Facts</h2>
+
+      <div class="facts-grid">
+
+        <div class="fact-box">
+          <span class="icon-badge icon-code"><i class="fas fa-code"></i></span>
+          <span>Full-Stack Developer</span>
+        </div>
+
+        <div class="fact-box">
+          <span class="icon-badge icon-grad"><i class="fas fa-graduation-cap"></i></span>
+          <span>Graduate Student</span>
+        </div>
+
+        <div class="fact-box">
+          <span class="icon-badge icon-unity"><i class="devicon-unity-plain"></i></span>
+          <span>Unity Developer</span>
+        </div>
+
+        <div class="fact-box">
+          <span class="icon-badge icon-cloud"><i class="fas fa-cloud"></i></span>
+          <span>Cloud & AI Enthusiast</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Mohammad Shaikh</p>
+  </footer>
+
 </div>
