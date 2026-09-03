@@ -1,10 +1,9 @@
-/* Exact same container rules as Current Position */
 .portfolio-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 650px;
-  height:100%;
+  height: 100%;
   min-height: 800px;
   width: 100%;
   margin: 40px auto;
@@ -52,15 +51,68 @@
 }
 
 /* Constrains actions so they match the inner width ratio cleanly */
-.social-links, .contact-actions {
+.contact-actions {
   width: 100%;
-  max-width: 550px; /* Matches the info-card max-width constraint */
+  max-width: 550px;
   display: flex;
   flex-direction: column;
   gap: 12px;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Row of app-style circular icon buttons (LinkedIn, Instagram, Gmail) —
+   these three are universally recognized by their icon alone, the way
+   they'd appear on a phone's home screen, so no text label is needed. */
+.icon-links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 4px;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  color: #ffffff;
+  text-decoration: none;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+  .icon-btn i {
+    font-size: 1.6rem;
+  }
+
+  .icon-btn svg {
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+  }
+
+  .icon-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+  }
+
+.linkedin-icon {
+  background-color: #0A66C2; /* LinkedIn brand blue */
+}
+
+.instagram-icon {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram brand gradient */
+}
+
+.gmail-icon {
+  background-color: #ffffff; /* Gmail's mark is drawn for a light background, like the real app icon */
+  color: #EA4335;
 }
 
 .btn {
@@ -77,6 +129,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   border: none;
+  color: #ffffff;
 }
 
   .btn i {
@@ -84,30 +137,27 @@
     font-size: 1.1rem;
   }
 
-.outline-btn {
-  background-color: transparent;
-  color: #ffffff;
-  border: 2px solid #333333;
-}
-
-  .outline-btn:hover {
-    background-color: #333333;
-    transform: translateY(-2px);
-  }
-
-.primary-btn {
-  background-color: #4CAF50;
-  color: white;
-}
-
-  .primary-btn.email-btn {
-    background-color: #2196F3;
-  }
-
-  .primary-btn:hover, .outline-btn:hover {
+  .btn:hover {
     filter: brightness(1.1);
     transform: translateY(-2px);
   }
+
+/* Each button is colored for what it represents rather than a
+   shared "primary/outline" scheme, so the color itself signals
+   the action (brand color for social links, per-channel color
+   for the contact actions). */
+
+.phone-btn {
+  background-color: #4CAF50; /* call-to-action green */
+}
+
+.form-btn {
+  background-color: #FF9800; /* compose-a-message amber */
+}
+
+.submit-btn {
+  background-color: #009688; /* send-action teal */
+}
 
 .divider {
   width: 100%;
@@ -128,7 +178,68 @@ footer {
 @media (max-width: 768px) {
   .portfolio-container {
     width: 100%;
-    margin: 20px auto; /* centers horizontally */
+    margin: 20px auto;
     padding: 20px;
   }
+}
+
+/* Matches the <div class="contact-form-container"> in the template.
+   (Previously named ".contact-form", which never matched anything —
+   the form rendered completely unstyled.) */
+.contact-form-container {
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  background: #2c2c2c;
+  border: 1px solid #444;
+  color: white;
+  border-radius: 8px;
+  font-family: inherit;
+}
+
+  .form-input:focus,
+  .form-textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+  }
+
+.form-textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-status {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.form-status-success {
+  background: rgba(76, 175, 80, 0.14);
+  color: #8fe093;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.form-status-error {
+  background: rgba(244, 67, 54, 0.14);
+  color: #ff8a80;
+  border: 1px solid rgba(244, 67, 54, 0.3);
 }

@@ -1,0 +1,37 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+PUT https://localhost:7154/downloads
+
+###
+
+GET https://localhost:7154/users/1/posts/Neah!
+
+###
+
+GET https://localhost:7154/report/2020
+
+###
+GET https://localhost:7154/search?q=waldo&page=71
+
+###
+GET https://localhost:7154/blogs/0
+
+###
+POST https://localhost:7154/blogs
+Content-Type: application/json
+
+{
+  "Title": "Third",
+  "Body": "Eat candy for breakfast!"
+}
+
+###
+DELETE https://localhost:7154/blogs/1
+
+###
+PUT https://localhost:7154/blogs/0
+Content-Type: application/json
+
+{
+  "Title": "Updated third Blog",
+  "Body": "This is the updated third blog post."
+}

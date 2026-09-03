@@ -1,36 +1,107 @@
 <div class="portfolio-container">
   <header class="profile-header">
-    <h1>Mohammad Yusuf I Shaikh</h1>
-    <br />
     <img src="images/Headshot.jpg" alt="Mohammad Yusuf I Shaikh" class="profile-img">
+    <h1>Mohammad Yusuf I Shaikh</h1>
 
     <p class="subtitle">
-      <i class="fas fa-laptop-code"></i> Junior Software Developer <br /> <i class="fas fa-graduation-cap"> </i> Computer Science Major
+      <i class="fas fa-laptop-code"></i> Junior Software Developer <br /> <i class="fas fa-graduation-cap"></i> Computer Science Major
     </p>
   </header>
 
   <main>
-    <section class="social-links">
-      <a href="https://www.linkedin.com/in/mohammad-shaikh/" target="_blank" rel="noopener noreferrer" class="btn outline-btn">
-        <i class="fab fa-linkedin"></i> LinkedIn
+
+    <section class="icon-links">
+      <a href="https://www.linkedin.com/in/mohammad-shaikh/"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="icon-btn linkedin-icon"
+         aria-label="LinkedIn"
+         title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
       </a>
-      <a href="https://instagram.com/your-profile" target="_blank" rel="noopener noreferrer" class="btn outline-btn">
-        <i class="fab fa-instagram"></i> Instagram
+
+      <a href="https://instagram.com/your-profile"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="icon-btn instagram-icon"
+         aria-label="Instagram"
+         title="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="mailto:contact@myshaikh237.com"
+         class="icon-btn gmail-icon"
+         aria-label="Email"
+         title="Email">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+        </svg>
       </a>
     </section>
 
     <div class="divider"></div>
 
     <section class="contact-actions">
-      <a href="mailto:contact@myshaikh237.com" class="btn primary-btn email-btn">
-        <i class="fas fa-envelope"></i> Email Me
-      </a>
 
-      <!-- Handled by contact.ts -->
-      <button (click)="handlePhoneClick()" class="btn primary-btn phone-btn">
-        <i class="fas fa-phone"></i> {{ phoneButtonText }}
+      <button (click)="handlePhoneClick()"
+              class="btn phone-btn">
+        <i class="fas fa-phone"></i>
+        {{ phoneButtonText }}
       </button>
+
+      <button class="btn form-btn"
+              (click)="showContactForm = !showContactForm">
+        <i class="fas fa-paper-plane"></i>
+        {{ showContactForm ? 'Hide Contact Form' : 'Contact Form' }}
+      </button>
+
     </section>
+
+    <div *ngIf="showContactForm" class="contact-form-container">
+
+      <h3>Send Me a Message</h3>
+
+      <input type="text"
+             name="name"
+             placeholder="Your Name"
+             class="form-input"
+             [(ngModel)]="contactForm.name">
+
+      <input type="email"
+             name="email"
+             placeholder="Your Email"
+             class="form-input"
+             [(ngModel)]="contactForm.email">
+
+      <input type="text"
+             name="subject"
+             placeholder="Subject"
+             class="form-input"
+             [(ngModel)]="contactForm.subject">
+
+      <textarea rows="6"
+                name="body"
+                class="form-textarea"
+                placeholder="Tell me about your project, internship opportunity, full-stack development needs, software consulting, collaboration ideas, or any questions you may have."
+                [(ngModel)]="contactForm.body"></textarea>
+
+      <button class="btn submit-btn"
+              (click)="submitContact()"
+              [disabled]="contactStatus === 'sending'">
+        <i class="fas fa-paper-plane"></i>
+        {{ contactStatus === 'sending' ? 'Sending...' : 'Send Message' }}
+      </button>
+
+      <p *ngIf="contactStatus === 'sent'" class="form-status form-status-success">
+        Message sent — thanks for reaching out!
+      </p>
+
+      <p *ngIf="contactStatus === 'error'" class="form-status form-status-error">
+        Something went wrong. Please fill out every field and try again.
+      </p>
+
+    </div>
+
   </main>
 
   <footer>

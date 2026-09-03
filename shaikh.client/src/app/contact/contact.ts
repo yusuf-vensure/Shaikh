@@ -7,8 +7,19 @@ import { Component } from '@angular/core';
   standalone: false
 })
 export class ContactComponent {
-  public phoneButtonText: string = 'Contact: (470) 886-6957';
+  showContactForm = false;
+
   public readonly phoneNumber: string = '4708866957';
+  public phoneButtonText: string = 'Contact: (470) 886-6957';
+
+  contactForm = {
+    name: '',
+    email: '',
+    subject: '',
+    body: ''
+  };
+
+  contactStatus: 'idle' | 'sending' | 'sent' | 'error' = 'idle';
 
   handlePhoneClick(): void {
     navigator.clipboard.writeText(this.phoneNumber).then(() => {
@@ -23,5 +34,38 @@ export class ContactComponent {
     });
 
     window.location.href = `tel:${this.phoneNumber}`;
+  }
+
+  submitContact(): void {
+    const { name, email, subject, body } = this.contactForm;
+
+    if (!name.trim() || !email.trim() || !subject.trim() || !body.trim()) {
+      this.contactStatus = 'error';
+      return;
+    }
+
+    this.contactStatus = 'sending';
+
+    fetch('https://localhost:7154/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, email, subject, body })
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(() => {
+        this.contactStatus = 'sent';
+        this.contactForm = { name: '', email: '', subject: '', body: '' };
+      })
+      .catch(error => {
+        console.error('Failed to send message:', error);
+        this.contactStatus = 'error';
+      });
   }
 }
